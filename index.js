@@ -12,9 +12,11 @@ const UPLOAD_FOLDER = process.env.UPLOAD_FOLDER || "public";
 const AUTH_READ = process.env.AUTH_READ === "yes";
 const AUTH_WRITE = process.env.AUTH_WRITE !== "no";
 const SECRET_KEY = process.env.SECRET_KEY || "Annie is Vader";
+
+console.log(AUTH_READ, AUTH_WRITE)
 const JWT_EXPIRATION = process.env.JWT_EXPIRATION || "24h";
 const PORT = process.env.PORT || 8000;
-const SALT = bcrypt.genSaltSync(process.env.SALT || 10);
+const SALT = bcrypt.genSaltSync(Number(process.env.SALT) || 10);
 
 const dbFileName = process.env.DB_FILE || "db.json";
 const dbFilePath = path.join(__dirname, dbFileName);
